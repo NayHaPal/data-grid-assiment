@@ -1,0 +1,11 @@
+.data-gird-row{
+    display:flex;
+    border-bottom: 1px solid #d7d7d7;
+}
+.data-gird-cell{
+    flex-basis: 100%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+

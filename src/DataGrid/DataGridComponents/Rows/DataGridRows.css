@@ -1,0 +1,19 @@
+.data-gird-rows{
+    overflow: scroll;
+    padding-right: 0px;
+    position: relative;
+}
+
+
+@media screen and (max-width: 992px){
+    .data-gird-rows {
+        overflow: scroll;
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .data-gird-rows{
+        overflow: scroll;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

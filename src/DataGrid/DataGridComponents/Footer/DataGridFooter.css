@@ -1,0 +1,14 @@
+.data-gird-footer{
+    text-align: right;
+    padding: 20px;
+    border-top: 1px solid #8b8b8b;
+
+}
+.pagination-sign{
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+.pagination{
+ margin :  0 30px;
+}
