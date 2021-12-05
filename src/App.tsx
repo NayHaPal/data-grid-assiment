@@ -175,7 +175,6 @@ function App() {
                 <DataGrid
                     columns={columns2}
                     rows={dataSmall}
-                    height={500}
                 />
             </div>
 

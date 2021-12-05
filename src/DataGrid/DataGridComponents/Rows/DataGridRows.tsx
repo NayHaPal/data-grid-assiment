@@ -11,7 +11,7 @@ export default function DataGridRows(props: any) {
         <div className="data-gird-rows" style={height}>
             <DataGridHeader/>
             {props.items && props.items.length ? props.items.map((item: any, index: number) => {
-                    return <DataGridRow key={item.Id} item={item} rowId={index}/>
+                    return <DataGridRow key={index} item={item} rowId={index}/>
                 })
                 : ""}
         </div>

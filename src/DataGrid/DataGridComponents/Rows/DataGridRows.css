@@ -1,5 +1,5 @@
 .data-gird-rows{
-    overflow: scroll;
+    overflow: auto;
     padding-right: 0px;
     position: relative;
 }

@@ -47,7 +47,7 @@ export default function DataGrid(props: dataGridData) {
                 <div className={""}>
                     {visibleRows && visibleRows.length ?
                         !options.virtualized ?
-                            <DataGridRows items={visibleRows}/> : <DataGridVirtualRows items={visibleRows}/> :
+                            <DataGridRows  items={visibleRows}/> : <DataGridVirtualRows items={visibleRows}/> :
                         <DataGridNoData/>
                     }
                 </div>
