@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import DataGridRow from "../Row/DataGridRow";
 import {DataGridDataContext} from "../../DataGridContext";
 import "./DataGridVirtualRows.css"
@@ -9,7 +9,6 @@ import DataGridHeader from "../Header/DataGridHeader";
 
 export default function DataGridVirtualRows(props: any) {
     const {options, setOptions} = useContext(DataGridDataContext);
-    let height = options.height ? {height: options.height + "px"} : {};
     function rowRenderer({
                              index, // Index of row
                              isScrolling, // The List is currently being scrolled
@@ -19,22 +18,13 @@ export default function DataGridVirtualRows(props: any) {
                              style, // Style object to be applied to row (to position it);
                          }: any) {
         const item = props.items[index];
-        const content = isScrolling ? '...' : <DataGridRow key={item.id} item={item} style={style} rowId={index}/>;
+        const content = isScrolling ? '...' : <DataGridRow key={key} item={item} style={style} rowId={index}/>;
         return (
             <div key={key} style={style}>
                 {content}
             </div>
         );
     }
-    useEffect(()=>{
-        // let firstElement = document.querySelector(".ReactVirtualized__List");
-        // let innerElement = document.querySelector(".ReactVirtualized__Grid__innerScrollContainer");
-        // ((firstElement||{}).style||{}).width= '100%';
-        // ((innerElement||{}).style||{}).width= '100%';
-        //
-
-
-    },[])
 
     return (
         <div className="data-gird-virtual-rows">
