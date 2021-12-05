@@ -11,6 +11,7 @@ function App() {
     const [dataSmall, setDataSmall] = useState([]);
     const refGrid = useRef(null);
     let dataVar: any;
+    let dataVar2: any;
 
     // @ts-ignore
     useEffect(async () => {
@@ -32,6 +33,8 @@ function App() {
         let ListOfCity2 = await getDataSmall();
         // @ts-ignore
         setDataSmall(ListOfCity2);
+        dataVar2 = ListOfCity2;
+
     }, [])
 
 
@@ -40,6 +43,13 @@ function App() {
         _data = _data.filter((item: any) => item.id !== param.row.id);
         dataVar = _data;
         setData(_data);
+    }
+
+    function deleteRowFromList2(param: GridCellParams) {
+        let _data = clone(dataVar2)
+        _data = _data.filter((item: any) => item.id !== param.row.id);
+        dataVar2 = _data;
+        setDataSmall(_data);
     }
 
     let columns: GridColDef [] = [
@@ -99,6 +109,63 @@ function App() {
         }
     ]
 
+    let columns2: GridColDef [] = [
+        {
+            field: "id",
+            headerName: "Id",
+            description: "Id",
+            width: 30,
+            hide: false,
+            editable: false,
+            type: "number",
+        },
+        {
+            field: "cityName",
+            headerName: "City Name",
+            description: "City Name",
+            width: 140,
+            hide: false,
+            editable: true,
+            type: "string",
+        },
+        {
+            field: "description",
+            headerName: "Description",
+            description: "Description",
+            width: 350,
+            hide: false,
+            editable: false,
+            type: "string",
+            renderEditCell: (params: any) => null,
+        },
+        {
+            field: "image",
+            headerName: "Image",
+            description: "Image",
+            width: 360,
+            hide: false,
+            editable: false,
+            type: "custom",
+            renderCell: (params) => {
+                return <ImageColumn {...params} />;
+            },
+            renderEditCell: (params) => null,
+        },
+        {
+            field: "options",
+            headerName: "Options",
+            description: "Options",
+            width: 100,
+            hide: false,
+            editable: false,
+            type: "custom",
+            renderCell: (params) => {
+                return <button onClick={() => deleteRowFromList2(params)}> Delete </button>;
+            },
+            renderEditCell: (params: any) => null,
+        }
+    ]
+
     return (
         <div className="App">
 
@@ -106,7 +173,7 @@ function App() {
             <h4>Simple data Grid with few rows</h4>
             <div>
                 <DataGrid
-                    columns={columns}
+                    columns={columns2}
                     rows={dataSmall}
                     height={500}
                 />
