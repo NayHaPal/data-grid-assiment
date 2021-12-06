@@ -3,19 +3,3 @@
     min-width:100%;
     position: relative;
 }
-
-.ReactVirtualized__Grid__innerScrollContainer{
-    min-width: 100%!important;
-    width:fit-content!important;
-    box-sizing: border-box;
-
-}
-
-.ReactVirtualized__List{
-    min-width: 100%!important;
-    width:fit-content!important;
-    box-sizing: border-box;
-    will-change: unset!important;
-
-
-}

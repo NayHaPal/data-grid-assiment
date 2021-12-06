@@ -6,6 +6,7 @@ import "./DataGridVirtualRows.css"
 import {List} from 'react-virtualized';
 
 import DataGridHeader from "../Header/DataGridHeader";
+import {GridColDef} from "../../Interfaces/ColumnInterface";
 
 export default function DataGridVirtualRows(props: any) {
     const {options, setOptions} = useContext(DataGridDataContext);
@@ -26,11 +27,21 @@ export default function DataGridVirtualRows(props: any) {
         );
     }
 
+    const  getColumnsWidth = ()=>{
+        let columnsWidth = 0;
+        options && options.columns && (options.columns || []).map((item: GridColDef) => {
+            columnsWidth = columnsWidth + (item.width || 0);
+        })
+        return columnsWidth + ((options.columns || []).length * 20);
+    }
+
+    let columnsWidth = getColumnsWidth();
+
     return (
         <div className="data-gird-virtual-rows">
             <DataGridHeader/>
             <List
-                width={1000}
+                width={columnsWidth}
                 height={options.height}
                 rowCount={props.items.length}
                 rowHeight={options.rowHeight}
