@@ -16,7 +16,7 @@ function App() {
     // @ts-ignore
     useEffect(async () => {
         const getData = async () => {
-            let data = await fetch('http://localhost:3000/MOCK_DATA.json');
+            let data = await fetch('./MOCK_DATA.json');
             data = await data.json()
             return data;
         }
@@ -26,7 +26,7 @@ function App() {
         dataVar = ListOfCity;
 
         const getDataSmall = async () => {
-            let data = await fetch('http://localhost:3000/MOCK_DATA_SMALL.json');
+            let data = await fetch('./MOCK_DATA_SMALL.json');
             data = await data.json()
             return data;
         }
