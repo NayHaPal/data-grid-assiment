@@ -3,3 +3,8 @@
     min-width:100%;
     position: relative;
 }
+
+
+.ReactVirtualized__List{
+    will-change: unset!important;
+}
